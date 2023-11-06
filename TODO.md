@@ -17,7 +17,7 @@ Target:
 Buatlah web layouting menggunakan HTML dan CSS (boleh menggunakan CSS framework) untuk aplikasi client kamu meliputi halaman:
 
 - [ ] **Public site**
-  - [ ] Halaman Home/Landing Page
+  - [x] Halaman Home/Landing Page
     - Halaman yang berfungsi untuk menampilkan data Entitas Utama berbentuk Card, tambahkan input search/filter dan pagination pada halaman ini, buatlah halaman ini dengan layout yang rapi dan semenarik mungkin.
   - [ ] Halaman Detail
     - Buatlah Halaman yang berisi detail dari Entitas Utama.
