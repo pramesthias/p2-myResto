@@ -1,6 +1,6 @@
 # P2-Challenge-2 (Client Side)
 
-- Tema Aplikasi: ...
+- Tema Aplikasi: Restaurant App
 
 Struktur Folder:
 
