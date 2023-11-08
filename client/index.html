@@ -30,19 +30,19 @@
               <!-- <li class="nav-item">
               <a class="nav-link" href="/home">Home</a>
             </li> -->
+
+            <!-- CHANGED into button -->
               <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
+                <button id="register-button" type="button" class="nav-link">
+                  Register
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">Log In</a>
+                <button id="logIn-button" type="button" class="nav-link">
+                  Log In
+                </button>
               </li>
             </ul>
-
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-
           </div>
         </div>
       </nav>
@@ -69,12 +69,22 @@
             </div>
           </div>
 
-          <div class="card">
+          <!-- SORT -->
+          <!-- <div class="card">
             <div class="card-body text-center">
               <h5>Sort by Date</h5>
               <a href="#" class="btn btn-primary">ASC</a>
               <a href="#" class="btn btn-primary">DESC</a>
             </div>
+          </div> -->
+
+          <!-- CHANGED -->
+          <div class="card-body mt-4">
+            <h5>Sort by Date</h5>
+            <select name="sort" class="form-select">
+              <option value="-createdAt">Date Ascending</option>
+              <option value="createdAt">Date Descending</option>
+            </select>
           </div>
 
           <!-- FILTER -->
@@ -86,6 +96,7 @@
               <option value="3">Japanese Food</option>
             </select>
           </div>
+
         </div>
 
 
@@ -103,20 +114,9 @@
                   <div class="card-body">
                     <h5 class="card-title text-center">Card
                     </h5>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="card text-center">
-                  <img class="card-img-top"
-                    src="https://asset.kompas.com/crops/x6OULHa8pMi47UnvDTzf1j62ov4=/3x0:700x465/750x500/data/photo/2022/08/25/6306b48bb80a1.jpeg"
-                    alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title text-center">Card
-                    </h5>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <button id="read-more-button" type="button" class="btn btn-outline-dark flex-shrink-0">
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>

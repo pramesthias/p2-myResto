@@ -45,13 +45,13 @@ Target:
 
 Mencoba client server communication menggunakan HTTP Client seperti axios.
 
-- [ ]  Public site: Halaman Home
+- [x]  Public site: Halaman Home
 Lakukan GET data entitas utama (include: pagination, filter dan sort) pada halaman ini, tampilkan data sesuai dengan database server kalian.
 - [ ]  CMS site: Halaman Login
 Lakukan POST pada pada halaman ini, Jika proses login berhasil, simpan token di localStorage
 - [ ]  CMS site: Halaman Create
 Lakukan POST pada halaman create entitas utama, coba kalian buat data baru dan pastikan bahwa hanya User yang Valid yang bisa membuat data baru
-- [ ]  Halaman lainnya
+- [x]  Halaman lainnya
 Lengkapi semua proses komunikasi Client Server pada aplikasi kalian
 
 ## **W2D3**

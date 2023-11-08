@@ -1,4 +1,5 @@
 import axios from "axios";
+const baseUrl = "http://localhost:3000"
 
 function changePage(page) {
   const list_page = {
@@ -50,17 +51,13 @@ function changePage(page) {
   }
 }
 
-// [ ]  Public site: Halaman Home
-
-
-
 async function fetchCuisines() {
   //ambil data di dlm server lalu tampilkan dlm table yg ada
   // 1. AMBIL DATA
   try {
     let { data } = await axios({
       method: "GET",
-      url: "http://localhost:3000/cuisines"
+      url: baseUrl + "/cuisines"
     });
 
     // 2. CREATE ELEMENT DARI DATA KITA
@@ -78,28 +75,32 @@ async function fetchCuisines() {
         <span class="table-edit"><button type="button" class="btn btn-outline-dark flex-shrink-0">
             Edit
           </button></span>
-        <span class="table-remove"><button type="button" class="btn btn-danger flex-shrink-0">
+        <span class="table-remove"><button data-id="${el.id}" type="button" class="btn btn-danger delete-button flex-shrink-0">
             Remove
           </button></span>
       </td>
     </tr>`
     })
 
-    // 2. INJECT DATA KE DLM TABLE
+    // 3. INJECT DATA KE DLM TABLE
     const cuisine_table = document.querySelector("#cuisines-table tbody")
     cuisine_table.innerHTML = elements.join("")
+
+    // 4. KASIH EVENT LISTENER KE SETIAP TOMBOL DELETE KITA
+   document.querySelectorAll(".delete-button").forEach(el => {
+      el.addEventListener("click", handleDelete)
+    })
 
   } catch (error) {
     console.log(error)
   }
-
 }
 
 async function homePage() {
   try {
     let { data } = await axios({
       method: "GET",
-      url: "http://localhost:3000/pub/cuisines"
+      url: baseUrl + "/pub/cuisines"
     });
 
     console.log(data)
@@ -114,7 +115,9 @@ async function homePage() {
             <div class="card-body">
               <h5 class="card-title text-center"> ${el.name}
                   </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
+                  <button data-id="${el.id}" id="read-more-button" type="button" class="btn btn-outline-dark flex-shrink-0">
+                      Read More
+                  </button>
                 </div>
               </div>
         </div>`
@@ -128,26 +131,53 @@ async function homePage() {
   }
 }
 
+// async function handleSubmitAddCuisine(e) {
+//   e.preventDefault()
+//   const name = document.getElementById("add-name")
+//   const price = document.getElementById("add-price")
+//   const imageUrl = document.getElementById("add-imageUrl")
+//   const description = document.getElementById("add-description")
+//   const authorId = document.getElementById("add-authorId")
+//   const categoryId = document.getElementById("add-categoryId")
+// }
 
-async function handleSubmitAddCuisine(e) {
-  e.preventDefault()
+async function handleDelete(event){
+  // AMBIL ID DARI data-id yang diselipkan di tombol delete
+  let cuisineId = event.target.getAttribute("data-id")  // event terjadi di elemen button, ambil atributnya
 
-  const name = document.getElementById("add-name")
-  const price = document.getElementById("add-price")
-  const imageUrl = document.getElementById("add-imageUrl")
-  const description = document.getElementById("add-description")
-  const authorId = document.getElementById("add-authorId")
-  const categoryId = document.getElementById("add-categoryId")
+  try {
+    // AXIOS CALL UTK HAPUS DATA
+    await axios({
+      method: "DELETE",
+      url: baseUrl + "/cuisines/" + cuisineId
+    });
 
+    // FETCH DATA MOVIES TERBARU UTK UPDATE TAMPILAN
+    fetchCuisines()  
 
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 function init() {
 
   // HIDE HALAMAN YG BELUM PERLU DITAMPILKAN
   changePage("home");
-  homePage()
 
+  // homePage()
+
+  document.getElementById("read-more-button").addEventListener("click", function () { 
+    changePage("detail")
+  })
+
+  document.getElementById("register-button").addEventListener("click", function () { 
+    changePage("register")
+  })
+
+  document.getElementById("logIn-button").addEventListener("click", function () { 
+    changePage("login")
+  })
 
   // ADD EVENT LISTENER KE TOMBOL YG FIX MUNCUL
   document.getElementById("add-cuisine-button").addEventListener("click", function () {  // add di table page
@@ -160,15 +190,6 @@ function init() {
 
   document.getElementById("add-cuisine-form").addEventListener("submit",
     handleSubmitAddCuisine)
-
-
-  // document.getElementById("edit-cuisine-button").addEventListener("click", function() {
-  //   changePage("edit")
-  // })
-
-  // document.getElementById("cancel-edit-cuisine").addEventListener("click", function() {
-  //   changePage("cuisines")
-  // })
 
   // AMBIL DATA CUISINE
   // fetchCuisines();

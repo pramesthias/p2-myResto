@@ -30,6 +30,9 @@
               <!-- <li class="nav-item">
               <a class="nav-link" href="/home">Home</a>
             </li> -->
+
+              <!-- UNCHANGED -->
+
               <li class="nav-item">
                 <a class="nav-link" href="/register">Register</a>
               </li>
@@ -37,11 +40,8 @@
                 <a class="nav-link" href="/login">Log In</a>
               </li>
             </ul>
-
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            
+            <!-- UNCHANGED -->
 
           </div>
         </div>
@@ -88,7 +88,7 @@
             </select>
           </div>
         </div>
-      
+
 
         <!-- CUISINES MENU -->
         <!-- <div style="float: right;"> -->
@@ -103,19 +103,9 @@
                 <div class="card-body">
                   <h5 class="card-title text-center">Card
                   </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card text-center">
-                <img class="card-img-top" src="https://img.taste.com.au/lNnNoTvU/taste/2010/01/sushi-187034-1.jpg"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Sushi
-                  </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
+                  <button type="button" class="btn btn-outline-dark flex-shrink-0">
+                    Read More
+                  </button>
                 </div>
               </div>
             </div>
@@ -131,28 +121,29 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
-        <!-- </div> -->
+
       </div>
 
-          <!-- PAGINATION -->
-          <nav aria-label="Page navigation">
-            <ul class="pagination mt-5 justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+      <!-- PAGINATION -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination mt-5 justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
 
@@ -278,32 +269,34 @@
               <!-- EDITED -->
               <ul style="list-style-type: none;">
                 <li class="m-3">
-                  <span class="table-edit"><button id="edit-cuisine-button" type="button" class="btn btn-outline-dark flex-shrink-0">
-                    Edit
-                  </button></span><br>
+                  <span class="table-edit"><button id="edit-cuisine-button" type="button"
+                      class="btn btn-outline-dark flex-shrink-0">
+                      Edit
+                    </button></span><br>
                 </li>
                 <li class="m-3">
-                  <span class="table-edit"><button id="edit-image-button" type="button" class="btn btn-outline-dark flex-shrink-0">
-                    Edit Image
-                  </button></span><br>
+                  <span class="table-edit"><button id="edit-image-button" type="button"
+                      class="btn btn-outline-dark flex-shrink-0">
+                      Edit Image
+                    </button></span><br>
                 </li>
                 <li class="m-3">
-                  <span class="table-remove"><button id="remove-button" type="button" class="btn btn-danger flex-shrink-0">
+                  <span class="table-remove"><button id="remove-button" type="button"
+                      class="btn btn-danger flex-shrink-0">
                       Remove
                     </button></span>
                 </li>
               </ul>
             </td>
           </tr>
-
-          
         </tbody>
       </table>
 
       <!-- EDITED -->
-      <span><button id="add-cuisine-button" type="button" style="float: right;" class="btn btn-outline-dark flex-shrink-0 me-4">
-        Add Cuisine
-      </button></span>
+      <span><button id="add-cuisine-button" type="button" style="float: right;"
+          class="btn btn-outline-dark flex-shrink-0 me-4">
+          Add Cuisine
+        </button></span>
     </div>
 
 
@@ -323,9 +316,9 @@
           </div>
 
           <div class="form-group">
-                      <label for="image">Image URL</label>
-                      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                  </div>
+            <label for="image">Image URL</label>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+          </div>
 
           <div class="form-group">
             <label for="description">Description</label>
