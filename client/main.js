@@ -50,13 +50,12 @@ function changePage(page) {
   }
 }
 
+// [ ]  Public site: Halaman Home
+
+
+
 async function fetchCuisines() {
   //ambil data di dlm server lalu tampilkan dlm table yg ada
-  // axios({
-  //   method: "GET",
-  //   url: "http://localhost:3000/pub/cuisines"
-  // })
-
   // 1. AMBIL DATA
   try {
     let { data } = await axios({
@@ -96,11 +95,49 @@ async function fetchCuisines() {
 
 }
 
+async function homePage() {
+  try {
+    let { data } = await axios({
+      method: "GET",
+      url: "http://localhost:3000/pub/cuisines"
+    });
+
+    console.log(data)
+
+    const cuisines = data.map(el => {
+      return `
+            <div class="col">
+              <div class="card text-center">
+              <img class="card-img-top"
+              src=${el.imageUrl}
+              alt="${el.name}">
+            <div class="card-body">
+              <h5 class="card-title text-center"> ${el.name}
+                  </h5>
+                  <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+        </div>`
+    })
+
+    const cuisine_card = document.querySelector("#home-page #cuisines-card")
+    cuisine_card.innerHTML = cuisines.join("")
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 async function handleSubmitAddCuisine(e) {
   e.preventDefault()
 
   const name = document.getElementById("add-name")
-
+  const price = document.getElementById("add-price")
+  const imageUrl = document.getElementById("add-imageUrl")
+  const description = document.getElementById("add-description")
+  const authorId = document.getElementById("add-authorId")
+  const categoryId = document.getElementById("add-categoryId")
 
 
 }
@@ -109,20 +146,21 @@ function init() {
 
   // HIDE HALAMAN YG BELUM PERLU DITAMPILKAN
   changePage("home");
+  homePage()
 
 
   // ADD EVENT LISTENER KE TOMBOL YG FIX MUNCUL
-  document.getElementById("add-cuisine-button").addEventListener("click", function() {  // add di table page
+  document.getElementById("add-cuisine-button").addEventListener("click", function () {  // add di table page
     changePage("add")
   })
 
-  document.getElementById("cancel-add-cuisine").addEventListener("click", function() {  // cancel di ad form
+  document.getElementById("cancel-add-cuisine").addEventListener("click", function () {  // cancel di ad form
     changePage("cuisines")
   })
 
-  document.getElementById("add-cuisine-form").addEventListener("submit", 
-  handleSubmitAddCuisine)
-  
+  document.getElementById("add-cuisine-form").addEventListener("submit",
+    handleSubmitAddCuisine)
+
 
   // document.getElementById("edit-cuisine-button").addEventListener("click", function() {
   //   changePage("edit")
@@ -132,8 +170,8 @@ function init() {
   //   changePage("cuisines")
   // })
 
-  // AMBIL DATA MOVIE
-  fetchCuisines();
+  // AMBIL DATA CUISINE
+  // fetchCuisines();
 }
 
 init()

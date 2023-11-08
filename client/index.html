@@ -58,14 +58,13 @@
     <!-- PUBLIC SITE ALL ITEM -->
     <div id="home-page" class="container mt-4">
       <div class="row">
-        <!-- nav -->
-        <div class="col-md-3 sidebar">
+        <div id="sidebar" class="col-md-3 sidebar">
 
           <!-- SEARCH -->
           <div class="mb-3">
             <h5>Search</h5>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by Name">
+              <input name="search" type="text" class="form-control" placeholder="Search by Name">
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
           </div>
@@ -81,59 +80,52 @@
           <!-- FILTER -->
           <div class="card-body mt-4">
             <h5>Filter by Category</h5>
-            <select class="form-select">
-              <option value="category1">Indonesian Food</option>
-              <option value="category2">Chinese Food</option>
-              <option value="category2">Japanese Food</option>
+            <select name="filter" class="form-select">
+              <option value="1">Indonesian Food</option>
+              <option value="2">Chinese Food</option>
+              <option value="3">Japanese Food</option>
             </select>
           </div>
         </div>
 
 
         <!-- CUISINES MENU -->
-        <!-- <div style="float: right;"> -->
-        <div class="col-md-9 mt-4">
-          <div class="row row-cols-2 row-cols-md-5 g-4">
+        <!-- <div id="cuisines-card"> -->
 
-            <div class="col">
-              <div class="card text-center">
-                <img class="card-img-top"
-                  src="https://asset.kompas.com/crops/x6OULHa8pMi47UnvDTzf1j62ov4=/3x0:700x465/750x500/data/photo/2022/08/25/6306b48bb80a1.jpeg"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Card
-                  </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
+          <div class="col-md-9 mt-4">
+            <div id="cuisines-card" class="row row-cols-2 row-cols-md-5 g-4">
+
+              <div class="col">
+                <div class="card text-center">
+                  <img class="card-img-top"
+                    src="https://asset.kompas.com/crops/x6OULHa8pMi47UnvDTzf1j62ov4=/3x0:700x465/750x500/data/photo/2022/08/25/6306b48bb80a1.jpeg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card
+                    </h5>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col">
-              <div class="card text-center">
-                <img class="card-img-top" src="https://img.taste.com.au/lNnNoTvU/taste/2010/01/sushi-187034-1.jpg"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Sushi
-                  </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
+              <div class="col">
+                <div class="card text-center">
+                  <img class="card-img-top"
+                    src="https://asset.kompas.com/crops/x6OULHa8pMi47UnvDTzf1j62ov4=/3x0:700x465/750x500/data/photo/2022/08/25/6306b48bb80a1.jpeg"
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Card
+                    </h5>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://www.sasa.co.id/medias/page_medias/resep_dumplings.jpg"
-                  alt="Card image cap">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Dumpling
-                  </h5>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
+
         <!-- </div> -->
+
       </div>
 
       <!-- PAGINATION -->
@@ -326,8 +318,9 @@
           </div>
 
           <div class="form-group">
-            <label for="image">Image URL</label>
-            <input id="add-image" type="text" class="form-control" aria-describedby="basic-addon3 basic-addon4" required>
+            <label for="imageUrl">Image URL</label>
+            <input id="add-imageUrl" type="text" class="form-control" name="imageUrl"
+              aria-describedby="basic-addon3 basic-addon4" required>
           </div>
 
           <div class="form-group">
