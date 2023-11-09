@@ -11,7 +11,7 @@ export default function Cuisines() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const { data } = await axios("http://localhost:3000/cuisines");
+          const { data } = await axios.get("http://localhost:3000/cuisines");
           console.log(data)
           setData(data)
         } catch (error) {

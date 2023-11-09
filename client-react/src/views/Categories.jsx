@@ -9,7 +9,7 @@ export default function Categories() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios("http://localhost:3000/categories");
+        const { data } = await axios.get("http://localhost:3000/categories");
         console.log(data)
         setData(data)
       } catch (error) {
@@ -21,7 +21,7 @@ export default function Categories() {
 
   return (
     <div id="categories-table" className="mt-3">
-      <h2 className="text-center">The Cuisines</h2><br />
+      <h2 className="text-center">The Categories</h2><br />
       <table className="table table-striped text-center">
         <thead>
           <tr>

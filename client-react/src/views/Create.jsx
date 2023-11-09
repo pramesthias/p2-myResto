@@ -1,5 +1,5 @@
 {/* <!-- ADD NEW CUISINE PAGE --> */}
-{/* <section id="add-cuisine">
+<section id="add-cuisine">
     <div className="container mt-5">
     <h2 className="mb-4 text-center">Add New Cuisine</h2>
     <form id="add-cuisine-form" action="#" method="post" enctype="multipart/form-data" className="w-50 mx-auto">
@@ -41,4 +41,4 @@
         </div>
     </form>
     </div>
-</section> */}
+</section>
