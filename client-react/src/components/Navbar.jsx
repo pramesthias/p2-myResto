@@ -20,18 +20,18 @@ export const Navbar = () => {
 
     return (
         <div>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Restaurant App</a>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+              <a className="navbar-brand" href="#">Restaurant App</a>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
     
-                  <li class="nav-item">
+                  <li className="nav-item">
                   <button id="register-button" type="button" className="nav-link" onClick={handleRegisterClick}>
                   Register
                 </button>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                   <button id="logIn-button" type="button" className="nav-link" onClick={handleLoginClick}>
                   Log In
                 </button>
