@@ -1,31 +1,57 @@
-{/* <!-- LOGIN PAGE --> */ }
+import axios from "axios"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Navbar } from "../components/Navbar";
 
 export default function Login() {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate();
+
+    const handleEmail = (event) => {
+        setEmail(event.target.value)
+        console.log(event.target.value)
+    }
+
+    const handlePassword = (event) => {
+        setPassword(event.target.value)
+        console.log(event.target.value)
+    }
+
+    const handleLogin = async () => {
+        try {
+            const { data } = await axios.post("http://localhost:3000/login", email, password)
+            console.log(data)
+            localStorage.setItem("access_token", data.access_token)
+            navigate("/cuisines")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
-        <section id="login-page" className="vh-100 gradient-custom">
-            <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div className="card bg-dark text-white" style={{ borderRadius: "1rem" }}>
-                            <div className="card-body p-5 text-center">
-                                <h2 className="fw-bold mb-2 text-uppercase">Login</h2><br />
-
-                                <div className="form-outline form-white mb-4">
-                                    <label className="form-label" htmlFor="typeEmailX">Email</label>
-                                    <input type="email" id="typeEmailX" className="form-control form-control-lg" />
-                                </div>
-
-                                <div className="form-outline form-white mb-4">
-                                    <label className="form-label" htmlFor="typePasswordX">Password</label>
-                                    <input type="password" id="typePasswordX" className="form-control form-control-lg" />
-                                </div>
-
-                                <button className="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                            </div>
+        <>
+            <Navbar />
+            <section id="login-page">
+                <div className="container m-5">
+                    <h2 className="mb-4 text-center">LOGIN</h2>
+                    <form id="login-form" className="w-50 mx-auto">
+                        <div className="form-group">
+                            <label htmlFor="login-email">Email</label>
+                            <input id="login-email" type="email" className="form-control" name="email" value={email} onChange={handleEmail} required />
                         </div>
-                    </div>
+
+                        <div className="form-group">
+                            <label htmlFor="login-password">Password</label>
+                            <input id="login-password" type="password" className="form-control" name="password" value={password} onChange={handlePassword} required />
+                        </div>
+
+                        <div className="d-flex justify-content-center">
+                            <button onClick={handleLogin} type="submit" className="btn btn-primary">LOGIN</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }
