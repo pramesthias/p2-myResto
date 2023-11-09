@@ -1,4 +1,5 @@
 import { Navbar } from "./components/Navbar"
+import Cuisines from "./views/Cuisines"
 import Home from "./views/Home"
 
 
@@ -7,7 +8,8 @@ function App() {
   return (
     <div id="app">
       <Navbar />
-      <Home />
+      {/* <Home /> */}
+      <Cuisines />
       {/* <script type="module" src="/main.js"></script> */}
     </div>
 
