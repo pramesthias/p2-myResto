@@ -10,7 +10,7 @@ export default function CancelButton() {
 
     return (
         <button id="cancel-cuisine" type="button" 
-        className="btn btn-primary" onClick={handleCancel}>
+        className="btn btn-danger" onClick={handleCancel}>
             Cancel
         </button>
     );

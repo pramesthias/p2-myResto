@@ -7,11 +7,17 @@ import { Link } from "react-router-dom";
 export default function Categories() {
 
   const [data, setData] = useState([]);
+  const token = localStorage.getItem("access_token")
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/categories");
+        const { data } = await axios.get("http://localhost:3000/categories",
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         console.log(data)
         setData(data)
       } catch (error) {
