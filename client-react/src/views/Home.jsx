@@ -10,7 +10,6 @@ export default function Home() {
       < div id="home-page" className="container mt-4" >
         <div className="row">
           <Sidebar />
-          {/* <!-- CUISINES MENU --> */}
           <div className="col-md-9 mt-4">
             <Card />
           </div>

@@ -31,7 +31,7 @@ export const Card = () => {
               <h5 className="card-title text-center">{c.name}
               </h5>
               <Link to={`/pub/cuisines/${c.id}`}>
-                <button type="button" class="btn btn-outline-dark flex-shrink-0">
+                <button type="button" className="btn btn-outline-dark flex-shrink-0">
                   Read More
                 </button>
               </Link>
@@ -41,12 +41,3 @@ export const Card = () => {
     </div>
   )
 }
-
-// Card.propTypes = {
-//     card: {
-//         id: PropTypes.number,
-//         name: PropTypes.string,
-//         imageUrl: PropTypes.string,
-//     }
-
-// }

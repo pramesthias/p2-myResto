@@ -10,18 +10,18 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
         <Link to="/pub/cuisines">
-          <a className="navbar-brand">Restaurant App</a>
+          <p className="navbar-brand">Restaurant App</p>
           </Link>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {/* <li className="nav-item">
-                <Link to="/cuisines"><a class="nav-link">Admin Page</a></Link>
+                <Link to="/cuisines"><p class="nav-link">Admin Page</p></Link>
               </li> */}
               <li className="nav-item">
-                <Link to="/register"><a class="nav-link">Register</a></Link>
+                <Link to="/register"><p className="nav-link">Register</p></Link>
               </li>
               <li className="nav-item">
-                <Link to="/login"><a class="nav-link">Log In</a></Link>
+                <Link to="/login"><p className="nav-link">Log In</p></Link>
               </li>
             </ul>
           </div>

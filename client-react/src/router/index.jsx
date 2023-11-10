@@ -18,13 +18,13 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        // loader: () => {
-        //     const access_token = localStorage.getItem("access_token")
-        //     if (access_token) {
-        //         throw redirect("/cuisines")
-        //     }
-        //     return null;
-        // },
+        loader: () => {
+            const access_token = localStorage.getItem("access_token")
+            if (access_token) {
+                throw redirect("/cuisines")
+            }
+            return null;
+        },
         path: "/login",
         element: <Login />,
     },
