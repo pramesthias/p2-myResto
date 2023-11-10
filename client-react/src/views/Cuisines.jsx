@@ -15,11 +15,11 @@ export default function Cuisines() {
     const fetchData = async () => {
         try {
             const { data } = await axios.get("http://localhost:3000/cuisines",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
             console.log(data)
             setData(data)
             // setLoading(false)
@@ -28,7 +28,7 @@ export default function Cuisines() {
         }
     }
 
-    useEffect(() => { 
+    useEffect(() => {
         fetchData()
     }, []);
 
@@ -36,18 +36,18 @@ export default function Cuisines() {
     const handleDelete = async (id) => {
         try {
             await axios.delete(`http://localhost:3000/cuisines/${id}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
             console.log(id)
             fetchData()
         } catch (error) {
             console.error(error);
         }
     };
-    
+
     return (
         <>
             <Navbar />
@@ -114,10 +114,13 @@ export default function Cuisines() {
                                                         </button></span><br />
                                                     </li>
                                                     <li className="m-3">
-                                                        <span className="table-edit"><button id="edit-image-button" type="button"
-                                                            className="btn btn-warning">
-                                                            Edit Image
-                                                        </button></span><br />
+                                                        <Link to={`/cuisines/${d.id}/image-url`}>
+                                                            <span className="table-edit">
+                                                                <button id="edit-image-button" type="button" className="btn btn-warning">
+                                                                    Edit Image
+                                                                </button>
+                                                            </span>
+                                                        </Link><br />
                                                     </li>
                                                     <li className="m-3">
                                                         <span className="table-remove"><button onClick={() => handleDelete(d.id)} id="remove-button" type="button"

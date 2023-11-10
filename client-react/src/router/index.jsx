@@ -7,6 +7,7 @@ import Home from "../views/Home";
 import Cuisines from "../views/Cuisines";
 import Categories from "../views/Categories";
 import { Navbar } from "../components/Navbar";
+import Upload from "../views/Upload";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: "/categories",
                 element: <Categories />,
             },
+            {
+                path: "/cuisines/:id/image-url",
+                element: <Upload />,
+            }
         ]},
 ]);
 

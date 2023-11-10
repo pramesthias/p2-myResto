@@ -1,4 +1,10 @@
-{/* <section id="add-cuisine">
+import CancelButton from "./CancelButton";
+
+
+export default function Form(){
+
+    return(
+<section id="add-cuisine">
     <div className="container mt-5">
     <h2 className="mb-4 text-center">Add New Cuisine</h2>
     <form id="add-cuisine-form" action="#" method="post" enctype="multipart/form-data" className="w-50 mx-auto">
@@ -13,8 +19,8 @@
         </div>
 
         <div className="form-group">
-        <label htmlFor="imageUrl">Image URL</label>
-        <input id="add-imageUrl" type="text" className="form-control" name="imageUrl"
+        <label htmlFor="imgUrl">Image URL</label>
+        <input id="add-imgUrl" type="text" className="form-control" name="imgUrl"
             aria-describedby="basic-addon3 basic-addon4" required />
         </div>
 
@@ -35,9 +41,19 @@
         <br />
 
         <div className="d-flex justify-content-between">
-        <button id="cancel-add-cuisine" type="button" className="btn btn-primary">Cancel</button>
+        <CancelButton />
         <button type="submit" className="btn btn-primary">Save</button>
         </div>
     </form>
     </div>
-</section> */}
+</section> 
+    )
+
+}
+
+
+
+
+
+
+

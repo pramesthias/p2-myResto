@@ -33,33 +33,33 @@ export default function Login() {
 
     return (
         <>
-            <Navbar />
-            <section id="login-page">
-                <div className="container m-5">
-                    <h2 className="mb-4 text-center">LOGIN</h2>
-                    <form onSubmit={handleLogin} id="login-form" className="w-50 mx-auto">
-                        <div className="form-group">
-                            <label htmlFor="login-email">Email</label>
-                            <input id="login-email" type="email" className="form-control"
-                                name="email" autoComplete="on"
-                                value={email} onChange={handleEmail} required />
-                        </div>
+        <Navbar />
+        <section id="login-page">
+            <div className="container m-5">
+                <h2 className="mb-4 text-center">LOGIN</h2>
+                <form onSubmit={handleLogin} id="login-form" className="w-50 mx-auto">
+                    <div className="form-group">
+                        <label htmlFor="login-email">Email</label>
+                        <input id="login-email" type="email" className="form-control"
+                            name="email" autoComplete="on"
+                            value={email} onChange={handleEmail} required />
+                    </div>
 
-                        <div className="form-group">
-                            <label htmlFor="login-password">Password</label>
-                            <input id="login-password" type="password" className="form-control"
-                                name="password" autoComplete="on"
-                                value={password} onChange={handlePassword} required />
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="login-password">Password</label>
+                        <input id="login-password" type="password" className="form-control"
+                            name="password" autoComplete="on"
+                            value={password} onChange={handlePassword} required />
+                    </div><br></br>
 
-                        <div className="d-flex justify-content-center">
-                            <button type="submit" className="btn btn-primary">
-                                LOGIN
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </>
+                    <div className="d-flex justify-content-center">
+                        <button type="submit" className="btn btn-primary">
+                            LOGIN
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </>
     )
 }
