@@ -18,7 +18,7 @@ export const Navbar = () => {
                 <Link to="/cuisines"><p class="nav-link">Admin Page</p></Link>
               </li> */}
               <li className="nav-item">
-                <Link to="/register"><p className="nav-link">Register</p></Link>
+                <Link to="/add-users"><p className="nav-link">Register</p></Link>
               </li>
               <li className="nav-item">
                 <Link to="/login"><p className="nav-link">Log In</p></Link>

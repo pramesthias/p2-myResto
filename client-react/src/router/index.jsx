@@ -18,6 +18,10 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
+        path: "/pub/cuisines/:id",
+        element: <Detail />,
+    },
+    {
         loader: () => {
             const access_token = localStorage.getItem("access_token")
             if (access_token) {
@@ -29,28 +33,27 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
-        path: "/register",
-        element: <Register />,
-    },
-    {
-        path: "/pub/cuisines/:id",
-        element: <Detail />,
-    },
-    {
-        // loader: () => {
-        //     const access_token = localStorage.getItem("access_token")
-        //     if (!access_token) {
-        //         throw redirect("/pub/cuisines") //("/login")
-        //     }
-        //     return null;
-        // },
-        path: "/cuisines",
-        element: <Cuisines />,
-    },
-    {
-        path: "/categories",
-        element: <Categories />,
-    },
+        loader: () => {
+            const access_token = localStorage.getItem("access_token")
+            if (!access_token) {
+                throw redirect("/login")
+            }
+            return null;
+        },
+        children: [
+            {
+                path: "/add-users",
+                element: <Register />,
+            },
+            {
+                path: "/cuisines",
+                element: <Cuisines />,
+            },
+            {
+                path: "/categories",
+                element: <Categories />,
+            },
+        ]},
 ]);
 
 export default router
