@@ -13,11 +13,11 @@ export default function Categories() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get("http://localhost:3000/categories",
-        {
+          {
             headers: {
-                Authorization: `Bearer ${token}`
+              Authorization: `Bearer ${token}`
             }
-        });
+          });
         console.log(data)
         setData(data)
       } catch (error) {
@@ -29,15 +29,20 @@ export default function Categories() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <header className="bg-dark py-3">
+        <div className="text-center text-white">
+          <h1 className="display-5 fw-bolder">The Categories</h1>
+        </div>
+      </header>
       <div id="categories-table" className="mt-5">
-      <Link to={"/cuisines"}>
-          <span><button id="add-cuisine-button" type="button" 
+        <Link to={"/cuisines"}>
+          <span><button id="add-cuisine-button" type="button"
             className="btn btn-outline-dark flex-shrink-0 top-0 end-0 ms-3">
             Admin Page
           </button></span>
         </Link>
-        <h2 className="text-center">The Categories</h2><br />
+        {/* <h2 className="text-center">The Categories</h2><br /> */}
         <table className="table table-striped text-center">
           <thead>
             <tr>

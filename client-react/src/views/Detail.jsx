@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 
-{/* <!-- PUBLIC SITE DETAIL PAGE --> */ }
-
 export default function Detail() {
   const { id } = useParams();
   // console.log(id)
@@ -13,7 +11,7 @@ export default function Detail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/cuisines/" + id);
+        const { data } = await axios.get("http://localhost:3000/pub/cuisines/" + id);
         console.log(data)
         setData(data)
         console.log(data)
