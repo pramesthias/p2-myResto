@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { Link } from "react-router-dom";
-
+import { toast } from 'react-toastify';
 
 export default function Categories() {
 
@@ -12,7 +12,7 @@ export default function Categories() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/categories",
+        const { data } = await axios.get("https://resto-server-h8.pramresto.site/categories",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -20,7 +20,21 @@ export default function Categories() {
           });
           setData(data)
           // console.log(data)
-      } catch (error) {
+      } 
+      // catch (error) {
+      //   console.log(error)
+      // }
+      catch ({ response }) {
+        toast.error(response.data.message, {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
         console.log(error)
       }
     }

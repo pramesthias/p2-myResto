@@ -18,7 +18,7 @@ export default function Create() {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        setData({...formData, [name]: value});  //setData({...formData});
+        setData({ ...formData, [name]: value });  //setData({...formData});
 
         console.log(event.target.value)
     };
@@ -27,7 +27,7 @@ export default function Create() {
         event.preventDefault();
         try {
             const { data } = await axios({  //dipersatu
-                url: "http://localhost:3000/cuisines/add",
+                url: "https://resto-server-h8.pramresto.site/cuisines/add",
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -42,19 +42,42 @@ export default function Create() {
                 }
             })
             // console.log(data)
+            toast.success('🎉 You successfully added NEW CUISINE 🎉', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             navigate("/cuisines");
-        } 
-        catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
+
+        // catch (error) {
+        //     console.log(error)
+        // }
     }
 
     return (
         <>
-            <Form 
-            formData={formData}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
+            <Form
+                formData={formData}
+                onChange={handleChange}
+                onSubmit={handleSubmit}
             />
         </>
     )

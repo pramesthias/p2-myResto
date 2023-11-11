@@ -19,7 +19,7 @@ export const Sidebar = ({ search, setSearch, sort, setSort, filter, setFilter })
         <h5>Sort by</h5>
         <select name="sort" className="form-select" value={sort}
           onChange={(e) => setSort(e.target.value)}>
-          <option value="">Date</option>
+          <option value={""}>Date</option>
           <option value={"-createdAt"} >Date ASC</option>
           <option value={"createdAt"} >Date DESC</option>
         </select>

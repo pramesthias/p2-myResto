@@ -2,6 +2,8 @@ import { useState } from "react";
 import CancelButton from "../components/CancelButton";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify';
+
 
 export default function Upload() {
 
@@ -20,16 +22,38 @@ export default function Upload() {
         const formData = new FormData();
         formData.append('image', file); //name di attribute
         try {
-            const { data } = await axios.patch(`http://localhost:3000/cuisines/${id}/image-url`, formData, {
+            const { data } = await axios.patch(`https://resto-server-h8.pramresto.site/cuisines/${id}/image-url`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data"
                   },
             });
+
+            toast.success('🎉 You successfully UPLOADED NEW IMAGE 🎉', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
             navigate("/cuisines")
             // console.log({data})
-        } catch (error) {
-            console.error(error);
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+            console.log(error)
         }
     }
 

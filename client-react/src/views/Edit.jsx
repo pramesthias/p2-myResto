@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Form from "../components/Form";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 export default function Edit() {
     const { id } = useParams();
@@ -26,9 +27,23 @@ export default function Edit() {
                 },
             });
             setData(data)
-        } catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
+        
+        // catch (error) {
+        //     console.log(error)
+        // }
     }
 
 
@@ -47,7 +62,7 @@ export default function Edit() {
         event.preventDefault();
         try {
             const { data } = await axios({  //dipersatu
-                url: `http://localhost:3000/cuisines/${id}/edit`,
+                url: `https://resto-server-h8.pramresto.site/cuisines/${id}/edit`,
                 method: "put",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -62,10 +77,34 @@ export default function Edit() {
                 }
             })
             fetchData(data);
+            toast.success('🎉 You successfully EDITED THE CUISINE 🎉', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             navigate("/cuisines");
-        } catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
+        
+        // catch (error) {
+        //     console.log(error)
+        // }
     }
 
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
-
+import { toast } from 'react-toastify';
 
 export default function Cuisines() {
 
@@ -13,7 +13,7 @@ export default function Cuisines() {
 
     const fetchData = async () => {
         try {
-            const { data } = await axios.get("http://localhost:3000/cuisines",
+            const { data } = await axios.get("https://resto-server-h8.pramresto.site/cuisines",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -22,9 +22,24 @@ export default function Cuisines() {
             setData(data)
             // console.log(data)
             // setLoading(false)
-        } catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
+        
+        
+        // catch (error) {
+        //     console.log(error)
+        // }
     }
 
     useEffect(() => {
@@ -34,7 +49,7 @@ export default function Cuisines() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/cuisines/${id}`,
+            await axios.delete(`https://resto-server-h8.pramresto.site/cuisines/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -42,13 +57,44 @@ export default function Cuisines() {
                 });
             console.log(id)
             fetchData()
-        } catch (error) {
-            console.error(error);
+            toast.success('🚮 You successfully REMOVED THE CUISINE 🚮', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+            console.log(error)
         }
     };
 
     const handleLogout = async () => {
         localStorage.removeItem("access_token");
+        toast.info('🖐️ SEE YOU LATER 🖐️', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
         navigate("/pub/cuisines");
     }
 
@@ -102,7 +148,7 @@ export default function Cuisines() {
                                     <td className="pt-3-half">{d.name}</td>
                                     <td className="pt-3-half">{d.description}</td>
                                     <td className="pt-3-half">{d.price}</td>
-                                    <td className="pt-3-half">{d.Category.name}
+                                    <td className="pt-3-half">{d.Category.name}<br></br>
                                         <Link to={`/categories`}>
                                             <span className="table-detail"><button id="edit-cuisine-button" type="button"
                                                 className="btn btn-info mt-3">

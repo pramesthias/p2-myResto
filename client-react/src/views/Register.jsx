@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 
 export default function Register() {
 
@@ -26,7 +28,7 @@ export default function Register() {
         event.preventDefault();
         try {
             const { data } = await axios({  //dipersatu
-                url: "http://localhost:3000/add-users",
+                url: "https://resto-server-h8.pramresto.site/add-users",
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -41,8 +43,30 @@ export default function Register() {
                 }
             })
             console.log(data)
+
+            toast.success('🥳 You successfully REGISTERED A NEW USER 🥳', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
             navigate("/cuisines");
-        } catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
     }

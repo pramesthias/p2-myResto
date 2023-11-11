@@ -17,34 +17,12 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1); //ADDED
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const { data } = await axios({  //dipersatu
-  //         url: "http://localhost:3000/pub/cuisines",
-  //         method: "get",
-  //         params: {
-  //           search,
-  //           sort,
-  //           filter,
-  //           page
-  //         }
-  //       })
-  //       setData(data)
-  //       console.log(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   fetchData()
-  // }, [search, sort, filter, page])
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data: result } = await axios({  //dipersatu
-          url: "http://localhost:3000/pub/cuisines",
+          url: "https://resto-server-h8.pramresto.site/pub/cuisines",
           method: "get",
           params: {
             search,
@@ -102,16 +80,7 @@ export default function Home() {
               </Pagination>
            
           </div>
-
-
         </div>
-
-
-
-
-
-
-
 
         <div className="col-md-9 mt-4">
           <div id="cuisines-card" className="row row-cols-2 row-cols-md-5 g-4">
@@ -123,5 +92,6 @@ export default function Home() {
       </div>
     </div >
     </div >
+
   )
 }

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 
-  // const [home, setHome] = useState(false);
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">

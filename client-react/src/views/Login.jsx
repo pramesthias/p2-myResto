@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Navbar } from "../components/Navbar";
+import { toast } from 'react-toastify';
 
 
 export default function Login() {
@@ -21,13 +22,34 @@ export default function Login() {
     const handleLogin = async (event) => {
         event.preventDefault()
         try {
-            const { data } = await axios.post("http://localhost:3000/login",
+            const { data } = await axios.post("https://resto-server-h8.pramresto.site/login",
                 { email, password })
             // console.log(data)
             localStorage.setItem("access_token", data.access_token)
+
+            toast.success('🦄 WELCOME TO MY RESTAURANT! 🦄', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
             navigate("/cuisines")
-        } 
-        catch (error) {
+        } catch ({ response }) {
+            toast.error(response.data.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
             console.log(error)
         }
     }
