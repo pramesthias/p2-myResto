@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import Form from "../components/Form";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 
 export default function Create() {
     const navigate = useNavigate();
@@ -39,9 +41,10 @@ export default function Create() {
                     categoryId: formData.categoryId
                 }
             })
-            console.log(data)
+            // console.log(data)
             navigate("/cuisines");
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error)
         }
     }

@@ -58,17 +58,17 @@ const router = createBrowserRouter([
             {
                 path: "/cuisines/:id/image-url",
                 element: <Upload />,
+            },
+            {
+                path: "/cuisines/:id/edit",
+                element: <Edit />,
+            },
+            {
+                path: "/cuisines/add",
+                element: <Create />,
             }
         ]
     },
-    {
-        path: "/cuisines/:id/edit",
-        element: <Edit />,
-    },
-    {
-        path: "/cuisines/add",
-        element: <Create />,
-    }
 ]);
 
 export default router

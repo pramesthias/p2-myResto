@@ -18,8 +18,8 @@ export default function Categories() {
               Authorization: `Bearer ${token}`
             }
           });
-        console.log(data)
-        setData(data)
+          setData(data)
+          // console.log(data)
       } catch (error) {
         console.log(error)
       }

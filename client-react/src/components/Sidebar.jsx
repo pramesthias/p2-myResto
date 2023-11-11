@@ -4,7 +4,6 @@ import { useState } from "react"
 export const Sidebar = ({ search, setSearch, sort, setSort, filter, setFilter }) => {
 
   return (
-    // <div id="sidebar" className="col-md-3 sidebar">
     <>
       {/* <!-- SEARCH --> */}
       <div className="mb-3">
@@ -12,7 +11,6 @@ export const Sidebar = ({ search, setSearch, sort, setSort, filter, setFilter })
         <div className="input-group">
           <input id="search-name" name="search" type="text" value={search}
             onChange={(e) => setSearch(e.target.value)} className="form-control" placeholder="Search by Name" />
-          <button className="btn btn-primary" type="submit">Search</button>
         </div>
       </div>
 
@@ -53,27 +51,7 @@ export const Sidebar = ({ search, setSearch, sort, setSort, filter, setFilter })
           </div>
 
       </div>
-
-
-      {/* <!-- PAGINATION --> */}
-      {/* <nav aria-label="Page navigation">
-        <ul className="pagination mt-5 justify-content-center">
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li className="page-item active"><a className="page-link" href="#">1</a></li>
-          <li className="page-item"><a className="page-link" href="#">2</a></li>
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav> */}
     </>
-    // </div>
   )
 
 }

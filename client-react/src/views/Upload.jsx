@@ -61,20 +61,3 @@ export default function Upload() {
     )
 
 }
-
-{/* <div className="container w-50 mx-auto mt-4">
-<div className="row">
-    <div className="col-md-6">
-        <form method="post" action="#" id="#">
-            <div className="form-group files">
-                <label>Upload Your File </label>
-                <input type="file" className="form-control" />
-            </div><br />
-            <div className="d-flex justify-content-between">
-                <CancelButton />
-                <button type="submit" className="btn btn-primary">Save</button>
-            </div>
-        </form>
-    </div>
-</div>
-</div> */}

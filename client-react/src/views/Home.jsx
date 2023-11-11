@@ -3,7 +3,9 @@ import { Card } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import axios from "axios";
-// import Pagination from 'react-bootstrap/Pagination';
+
+
+import Pagination from 'react-bootstrap/Pagination';
 // import { Pagination } from 'react-bootstrap';
 
 export default function Home() {
@@ -51,8 +53,8 @@ export default function Home() {
             page
           }
         })
-        let { data, totalPage, total } = result
-        setTotalPage(totalPage)
+        let { data, totalPage, total } = result //added
+        setTotalPage(totalPage) // added
         setData(data)
         console.log(data)
       } catch (error) {
@@ -87,11 +89,10 @@ export default function Home() {
               search={search} setSearch={setSearch}
               sort={sort} setSort={setSort}
               filter={filter} setFilter={setFilter}
-            // page={page} setPage={setPage}
-            />
+            /><br></br>
 
             <div>
-              <Pagination size="sm">
+              <Pagination size="sm" className="mt-4">
                 <Pagination.First onClick={() => setPage(1)} />
                 <Pagination.Prev onClick={() => setPage(page > 1 ? page-1 : 1)} />
                 <PageNumber />
