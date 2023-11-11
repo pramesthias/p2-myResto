@@ -8,7 +8,7 @@ export default function Create() {
     const token = localStorage.getItem("access_token")
     const [formData, setData] = useState({
         name: "",
-        price: "",
+        price: 0,
         imgUrl: "",
         description: "",
         categoryId: 1,
@@ -16,9 +16,9 @@ export default function Create() {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        setData({ ...formData, [name]: value });
+        setData({...formData, [name]: value});
 
-        console.log({ ...formData, [name]: value })
+        console.log({...formData, [name]: value})
     };
 
     const handleSubmit = async (event) => {

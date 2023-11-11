@@ -19,8 +19,8 @@ export default function Cuisines() {
                         Authorization: `Bearer ${token}`
                     }
                 });
-            // console.log(data)
             setData(data)
+            // console.log(data)
             // setLoading(false)
         } catch (error) {
             console.log(error)
@@ -70,10 +70,10 @@ export default function Cuisines() {
                     </li>
                     <li className="m-3">
                         <Link to={"/cuisines/add"}>
-                        <span><button id="add-cuisine-button" type="button" style={{ float: "right" }}
-                            className="btn btn-primary top-0 end-0 m-3">
-                            Add Cuisine
-                        </button></span>
+                            <span><button id="add-cuisine-button" type="button" style={{ float: "right" }}
+                                className="btn btn-primary top-0 end-0 m-3">
+                                Add Cuisine
+                            </button></span>
                         </Link>
                     </li>
                 </ul>
