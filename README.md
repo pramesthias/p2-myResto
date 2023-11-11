@@ -2,3 +2,7 @@
 # P2-Challenge-2 (Client Side)
 
 > Tuliskan API Docs kamu di sini
+
+# My Client Side
+**[https://p2-h8-project.web.app/](https://p2-h8-project.web.app/)**
+**[https://p2-h8-project.firebaseapp.com/](https://p2-h8-project.firebaseapp.com/)**
