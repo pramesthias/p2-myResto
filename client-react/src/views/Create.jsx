@@ -1,44 +1,59 @@
-// {/* <!-- ADD NEW CUISINE PAGE --> */}
-// <section id="add-cuisine">
-//     <div className="container mt-5">
-//     <h2 className="mb-4 text-center">Add New Cuisine</h2>
-//     <form id="add-cuisine-form" action="#" method="post" enctype="multipart/form-data" className="w-50 mx-auto">
-//         <div className="form-group">
-//         <label htmlFor="name">Name</label>
-//         <input id="add-name" type="text" className="form-control" name="name" required />
-//         </div>
+import { useState } from "react";
+import axios from "axios";
+import Form from "../components/Form";
+import { useNavigate } from "react-router-dom";
 
-//         <div className="form-group">
-//         <label htmlFor="price">Price</label>
-//         <input id="add-price" type="number" className="form-control" name="price" required />
-//         </div>
+export default function Create() {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("access_token")
+    const [formData, setData] = useState({
+        name: "",
+        price: "",
+        imgUrl: "",
+        description: "",
+        categoryId: 1,
+    })
 
-//         <div className="form-group">
-//         <label htmlFor="imageUrl">Image URL</label>
-//         <input id="add-imageUrl" type="text" className="form-control" name="imageUrl"
-//             aria-describedby="basic-addon3 basic-addon4" required />
-//         </div>
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setData({ ...formData, [name]: value });
 
-//         <div className="form-group">
-//         <label htmlFor="description">Description</label>
-//         <textarea id="add-description" className="form-control" name="description" rows="4" required></textarea>
-//         </div>
+        console.log({ ...formData, [name]: value })
+    };
 
-//         <div className="form-group">
-//         <label htmlFor="authorId">Author ID</label>
-//         <input id="add-authorId" type="number" className="form-control" name="authorId" required />
-//         </div>
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await axios({  //dipersatu
+                url: "http://localhost:3000/cuisines/add",
+                method: "post",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+                data:
+                {
+                    name: formData.name,
+                    price: formData.price,
+                    imgUrl: formData.imgUrl,
+                    description: formData.description,
+                    categoryId: formData.categoryId
+                }
+            })
+            console.log(data)
+            navigate("/cuisines");
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-//         <div className="form-group">
-//         <label htmlFor="categoryId">Category ID</label>
-//         <input id="add-categoryId" type="number" className="form-control" name="categoryId" required />
-//         </div>
-//         <br />
+    return (
+        <>
+            <Form 
+            formData={formData}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            />
+        </>
+    )
+}
 
-//         <div className="d-flex justify-content-between">
-//         <button id="cancel-add-cuisine" type="button" className="btn btn-primary">Cancel</button>
-//         <button type="submit" className="btn btn-primary">Save</button>
-//         </div>
-//     </form>
-//     </div>
-// </section>

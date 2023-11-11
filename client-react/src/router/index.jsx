@@ -7,6 +7,8 @@ import Home from "../views/Home";
 import Cuisines from "../views/Cuisines";
 import Categories from "../views/Categories";
 import Upload from "../views/Upload";
+import Edit from "../views/Edit";
+import Create from "../views/Create";
 
 const router = createBrowserRouter([
     {
@@ -57,7 +59,16 @@ const router = createBrowserRouter([
                 path: "/cuisines/:id/image-url",
                 element: <Upload />,
             }
-        ]},
+        ]
+    },
+    {
+        path: "/cuisines/:id/edit",
+        element: <Edit />,
+    },
+    {
+        path: "/cuisines/add",
+        element: <Create />,
+    }
 ]);
 
 export default router

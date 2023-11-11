@@ -40,7 +40,6 @@ export default function Register() {
                     address: formData.address
                 }
             })
-            // setData(data)
             console.log(data)
             navigate("/cuisines");
         } catch (error) {
