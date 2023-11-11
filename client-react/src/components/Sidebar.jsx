@@ -1,51 +1,18 @@
 import axios from "axios"
 import { useState } from "react"
 
-export const Sidebar = ({searchResult, sortResult, filterResult}) => {  //onSortChange
-
-  const [search, setSearch] = useState("")
-  const [sort, setSort] = useState("")
-  const [filter, setFilter] = useState("")
-
-  const handleSearch = async () => {
-    try {
-      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?search=${search}`)
-      searchResult(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const handleSort = async () => {
-    try {
-      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?sort=${sort}`)
-      sortResult(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const handleFilter = async () => {
-    try {
-      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?filter=${filter}`)
-      filterResult(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+export const Sidebar = ({ search, setSearch, sort, setSort, filter, setFilter }) => {
 
   return (
-    <div id="sidebar" className="col-md-3 sidebar">
-
+    // <div id="sidebar" className="col-md-3 sidebar">
+    <>
       {/* <!-- SEARCH --> */}
       <div className="mb-3">
         <h5>Search</h5>
         <div className="input-group">
           <input id="search-name" name="search" type="text" value={search}
-          className="form-control" placeholder="Search by Name" 
-          onChange={(event) => setSearch(event.target.value)}/>
-          <button className="btn btn-primary" type="submit" onSubmit={handleSearch}>Search</button>
+            onChange={(e) => setSearch(e.target.value)} className="form-control" placeholder="Search by Name" />
+          <button className="btn btn-primary" type="submit">Search</button>
         </div>
       </div>
 
@@ -53,26 +20,43 @@ export const Sidebar = ({searchResult, sortResult, filterResult}) => {  //onSort
       <div className="card-body mt-4">
         <h5>Sort by</h5>
         <select name="sort" className="form-select" value={sort}
-        onChange={(event) => setSort(event.target.value)}>
-          <option value="-createdAt" onClick={handleSort}>Date Ascending</option>
-          <option value="createdAt" onClick={handleSort}>Date Descending</option>
+          onChange={(e) => setSort(e.target.value)}>
+          <option value="">Date</option>
+          <option value={"-createdAt"} >Date ASC</option>
+          <option value={"createdAt"} >Date DESC</option>
         </select>
       </div>
 
       {/* <!-- FILTER --> */}
       <div className="card-body mt-4">
-        <h5>Filter by Category</h5>
-        <select name="filter" className="form-select" value={filter}
-        onChange={(event) => setFilter(event.target.value)}>
-          <option value="1" onClick={handleFilter}>Indonesian Food</option>
-          <option value="2" onClick={handleFilter}>Chinese Food</option>
-          <option value="3" onClick={handleFilter}>Japanese Food</option>
-        </select>
+        <h5>Filter by</h5>
+
+          <div class="form-check">
+            <input class="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" value="1" id="indonesianFood" />
+            <label class="form-check-label" htmlFor="indonesianFood">
+              Indonesian Food
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" value="2" id="chnChecked" />
+            <label class="form-check-label" htmlFor="chnChecked">
+              Chinese Food
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" onChange={(e) => setFilter(e.target.value)}  type="checkbox" value="3" id="jpnChecked" />
+            <label class="form-check-label" htmlFor="jpnChecked">
+              Japanese Food
+            </label>
+          </div>
+
       </div>
 
 
       {/* <!-- PAGINATION --> */}
-      <nav aria-label="Page navigation">
+      {/* <nav aria-label="Page navigation">
         <ul className="pagination mt-5 justify-content-center">
           <li className="page-item">
             <a className="page-link" href="#" aria-label="Previous">
@@ -87,15 +71,15 @@ export const Sidebar = ({searchResult, sortResult, filterResult}) => {  //onSort
             </a>
           </li>
         </ul>
-      </nav>
-
-    </div>
+      </nav> */}
+    </>
+    // </div>
   )
 
 }
 
 
 
-  // const filterChange = (event) => {
-  //   setFilter(event.target.value)
-  // }
+// const filterChange = (event) => {
+//   setFilter(event.target.value)
+// }

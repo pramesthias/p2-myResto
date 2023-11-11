@@ -12,7 +12,7 @@ export default function Upload() {
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
-        console.log(event)
+        console.log(event.target)
     }
 
     const handleSubmit = async (event) => {
@@ -27,7 +27,7 @@ export default function Upload() {
                   },
             });
             navigate("/cuisines")
-            console.log({data})
+            // console.log({data})
         } catch (error) {
             console.error(error);
         }

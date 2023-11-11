@@ -16,9 +16,9 @@ export default function Create() {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        setData({...formData, [name]: value});
+        setData({...formData, [name]: value});  //setData({...formData});
 
-        console.log({...formData, [name]: value})
+        console.log(event.target.value)
     };
 
     const handleSubmit = async (event) => {
