@@ -9,19 +9,41 @@ export const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-        <Link to="/pub/cuisines">
-          <p className="navbar-brand">Restaurant App</p>
+          <Link to={"/pub/cuisines"}>
+            <span><button id="regis-button" type="button"
+              className="navbar-brand btn btn-outline-dark top-0 end-0 ms-3 mt-2">
+              Home
+            </button></span>
           </Link>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            {/* <li className="nav-item">
-                <Link to="/cuisines"><p class="nav-link">Admin Page</p></Link>
-              </li> */}
+
               <li className="nav-item">
-                <Link to="/add-users"><p className="nav-link">Register</p></Link>
+                <Link to={"/add-users"}>
+                  <span><button id="regis-button" type="button"
+                    className="btn btn-outline-dark flex-shrink-0 top-0 end-0 ms-3 mt-2">
+                    Register
+                  </button></span>
+                </Link>
               </li>
+
               <li className="nav-item">
-                <Link to="/login"><p className="nav-link">Log In</p></Link>
+                <Link to={"/login"}>
+                  <span><button id="login-button" type="button"
+                    className="btn btn-outline-dark flex-shrink-0 top-0 end-0 ms-3 mt-2">
+                    Log In
+                  </button></span>
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link to={"/cuisines"}>
+                  <span><button id="admin-button" type="button"
+                    className="btn btn-outline-dark flex-shrink-0 top-0 end-0 ms-3 mt-2">
+                    Admin Page
+                  </button></span>
+                </Link>
               </li>
             </ul>
           </div>

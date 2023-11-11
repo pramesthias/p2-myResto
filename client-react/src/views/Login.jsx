@@ -10,12 +10,11 @@ export default function Login() {
 
     const handleEmail = (event) => {
         setEmail(event.target.value)
-        console.log(event)
+        console.log(event.target.value)
     }
 
     const handlePassword = (event) => {
         setPassword(event.target.value)
-        console.log(event.target.value)
     }
 
     const handleLogin = async (event) => {
@@ -23,7 +22,7 @@ export default function Login() {
         try {
             const { data } = await axios.post("http://localhost:3000/login",
                 { email, password })
-            console.log(data)
+            // console.log(data)
             localStorage.setItem("access_token", data.access_token)
             navigate("/cuisines")
         } catch (error) {

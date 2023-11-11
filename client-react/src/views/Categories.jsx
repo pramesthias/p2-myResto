@@ -37,7 +37,7 @@ export default function Categories() {
       </header>
       <div id="categories-table" className="mt-5">
         <Link to={"/cuisines"}>
-          <span><button id="add-cuisine-button" type="button"
+          <span><button id="admin-page-button" type="button"
             className="btn btn-outline-dark flex-shrink-0 top-0 end-0 ms-3">
             Admin Page
           </button></span>

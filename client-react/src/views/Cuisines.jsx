@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
 
 
 export default function Cuisines() {
@@ -18,7 +19,7 @@ export default function Cuisines() {
                         Authorization: `Bearer ${token}`
                     }
                 });
-            console.log(data)
+            // console.log(data)
             setData(data)
             // setLoading(false)
         } catch (error) {
@@ -53,11 +54,12 @@ export default function Cuisines() {
 
     return (
         <>
-            <header className="bg-dark py-3">
+            <Navbar />
+            {/* <header className="bg-dark py-3">
                 <div className="text-center text-white">
                     <h1 className="display-5 fw-bolder">The Cuisines</h1>
                 </div>
-            </header>
+            </header> */}
             <div className="row">
                 <ul style={{ listStyleType: "none" }}>
                     <li className="m-3">
@@ -111,10 +113,12 @@ export default function Cuisines() {
 
                                         <ul style={{ listStyleType: "none" }}>
                                             <li className="m-3">
-                                                <span className="table-edit"><button id="edit-cuisine-button" type="button"
-                                                    className="btn btn-outline-dark flex-shrink-0">
-                                                    Edit
-                                                </button></span><br />
+                                                <Link to={`/cuisines/${d.id}/edit`}>
+                                                    <span className="table-edit"><button id="edit-cuisine-button" type="button"
+                                                        className="btn btn-outline-dark flex-shrink-0">
+                                                        Edit
+                                                    </button></span><br />
+                                                </Link>
                                             </li>
                                             <li className="m-3">
                                                 <Link to={`/cuisines/${d.id}/image-url`}>

@@ -1,5 +1,39 @@
+import axios from "axios"
+import { useState } from "react"
 
-export const Sidebar = () => {
+export const Sidebar = ({searchResult, sortResult, filterResult}) => {  //onSortChange
+
+  const [search, setSearch] = useState("")
+  const [sort, setSort] = useState("")
+  const [filter, setFilter] = useState("")
+
+  const handleSearch = async () => {
+    try {
+      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?search=${search}`)
+      searchResult(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleSort = async () => {
+    try {
+      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?sort=${sort}`)
+      sortResult(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleFilter = async () => {
+    try {
+      const {data} = await axios.get(`http://localhost:3000/pub/cuisines?filter=${filter}`)
+      filterResult(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   return (
     <div id="sidebar" className="col-md-3 sidebar">
@@ -8,27 +42,31 @@ export const Sidebar = () => {
       <div className="mb-3">
         <h5>Search</h5>
         <div className="input-group">
-          <input id="search-name" name="search" type="text" className="form-control" placeholder="Search by Name" />
-          <button className="btn btn-primary" type="submit">Search</button>
+          <input id="search-name" name="search" type="text" value={search}
+          className="form-control" placeholder="Search by Name" 
+          onChange={(event) => setSearch(event.target.value)}/>
+          <button className="btn btn-primary" type="submit" onSubmit={handleSearch}>Search</button>
         </div>
       </div>
 
       {/* <!-- CHANGED --> */}
       <div className="card-body mt-4">
         <h5>Sort by</h5>
-        <select name="sort" className="form-select">
-          <option value="-createdAt">Date Ascending</option>
-          <option value="createdAt">Date Descending</option>
+        <select name="sort" className="form-select" value={sort}
+        onChange={(event) => setSort(event.target.value)}>
+          <option value="-createdAt" onClick={handleSort}>Date Ascending</option>
+          <option value="createdAt" onClick={handleSort}>Date Descending</option>
         </select>
       </div>
 
       {/* <!-- FILTER --> */}
       <div className="card-body mt-4">
         <h5>Filter by Category</h5>
-        <select name="filter" className="form-select">
-          <option value="1">Indonesian Food</option>
-          <option value="2">Chinese Food</option>
-          <option value="3">Japanese Food</option>
+        <select name="filter" className="form-select" value={filter}
+        onChange={(event) => setFilter(event.target.value)}>
+          <option value="1" onClick={handleFilter}>Indonesian Food</option>
+          <option value="2" onClick={handleFilter}>Chinese Food</option>
+          <option value="3" onClick={handleFilter}>Japanese Food</option>
         </select>
       </div>
 
@@ -56,3 +94,8 @@ export const Sidebar = () => {
 
 }
 
+
+
+  // const filterChange = (event) => {
+  //   setFilter(event.target.value)
+  // }

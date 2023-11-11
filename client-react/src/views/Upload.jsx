@@ -42,7 +42,7 @@ export default function Upload() {
                             className="img-fluid" alt="Sample image" />
                     </div>
                     <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form onSubmit={handleSubmit} enctype="multipart/form-data">
+                        <form onSubmit={handleSubmit} encType="multipart/form-data">
                             <div className="form-group files">
                                 <label>Upload Your File </label><br></br>
                                 <input onChange={handleFileChange} type="file" name="image" className="form-control" />

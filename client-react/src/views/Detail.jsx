@@ -34,7 +34,7 @@ export default function Detail() {
             <div className="col-md-6">
               <h1 className="display-5 fw-bolder">{data.name}</h1>
               <div className="fs-5 mb-5">
-                <span>Rp. {data.price},00</span>
+                <span>{new Intl.NumberFormat("id-ID", {style: "currency", currency: "IDR"}).format(data.price)}</span>
               </div>
               <p className="lead">{data.description}</p>
             </div>

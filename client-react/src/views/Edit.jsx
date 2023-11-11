@@ -1,4 +1,10 @@
 {/* <!-- EDIT CUISINE PAGE --> */}
+
+export default function Edit () {
+
+    return(<></>)
+}
+
 {/* <section id="edit-cuisine">
     <div className="container mt-5">
     <h2 className="mb-4 text-center">Edit Cuisine</h2>
